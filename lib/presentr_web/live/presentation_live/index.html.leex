@@ -1,0 +1,5 @@
+<h1>Enter a Gist ID below to present</h1>
+
+<form phx-submit="id" class="search-form">
+  <%= text_input :gist_id, :id, placeholder: "Gist ID", autofocus: true, "phx-debounce": "300" %>
+</form>

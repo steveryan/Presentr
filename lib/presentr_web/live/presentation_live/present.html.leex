@@ -1,0 +1,9 @@
+<h1>You are presenting</h1>
+
+<p>Share the following link to your audience members to present to them in real time, no screen-share required: presentr.io/presentations/<%= assigns.presentation_id %></p>
+
+<div style="display: flex;" phx-window-keyup="keypress">
+  <button phx-click="previous" style="margin: 10px;"><</button>
+  <div style="width: 100%; margin: 10px;"><%= live_component @socket, PresentrWeb.PresentationLive.Slide, html: assigns.slides, slide: assigns.slide %></div>
+  <button phx-click="next" style="margin: 10px;">></button>
+</div>

@@ -1,0 +1,8 @@
+<h1>Viewing Presentation</h1>
+
+<p>gist.github.com/<%= assigns.presentation_id %></p>
+<div style="display: flex;" phx-window-keyup="keypress">
+  
+  <div style="width: 100%; margin: 10px;"><%= live_component @socket, PresentrWeb.PresentationLive.Slide, html: assigns.slides, slide: assigns.slide %></div>
+ 
+</div>
