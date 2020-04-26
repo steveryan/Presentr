@@ -17,7 +17,7 @@ defmodule PresentrWeb.Router do
   scope "/", PresentrWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
+    live "/", PresentationLive.Index, :index
     live "/presentations", PresentationLive.Index, :index
     live "/presentations/:id", PresentationLive.Show, :show
     live "/presentations/:id/present", PresentationLive.Present, :present
