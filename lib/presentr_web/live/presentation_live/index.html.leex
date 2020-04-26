@@ -1,5 +1,8 @@
-<h1>Enter a Gist ID below to present</h1>
+<h1>Welcome to Presentr</h1>
+<p>Presentr allows you to present your markdown slides hosted on <a href="http://gist.github.com">gist.github.com</a> to anyone, anywhere without setting up any screen-sharing.</p>
+<p>Once you've entered the gist id of your presentation, you'll see your slides, and can naviate forward and backwards with the "<" and ">" buttons as well as the left and right arrows on your keyboard. You'll also get a url to send to your audience members.</p>
 
+<h3>Enter a Gist ID below to present</h3>
 <form phx-submit="id" class="search-form">
   <%= text_input :gist_id, :id, placeholder: "Gist ID", autofocus: true, "phx-debounce": "300" %>
 </form>
