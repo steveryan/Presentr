@@ -1,7 +1,7 @@
 <h1>You are presenting</h1>
 
 <p>Share the following link to your audience members to present to them in real time, no screen-share required: </p>
-<p>presentr.io/presentations/<%= assigns.presentation_id %></p>
+<p><a href="<%= PresentrWeb.Endpoint.url() %>/presentations/<%= assigns.presentation_id %>"><%= PresentrWeb.Endpoint.url() %>/presentations/<%= assigns.presentation_id %></a></p>
 
 
 <%= if is_list(assigns.slides) do %>
