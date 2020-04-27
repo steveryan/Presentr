@@ -34,4 +34,4 @@ npm-debug.log
 /priv/static/
 
 # Config files (secret)
-**/*.secret.exs
+# **/*.secret.exs
