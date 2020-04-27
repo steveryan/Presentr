@@ -13,19 +13,7 @@ defmodule PresentrWeb.PresentationLive.Show do
   end
 
   @impl true
-  def handle_event("keypress", %{"code" => "ArrowDown"}, socket) do
-    {:noreply, socket}
-  end
-
-  def handle_event("keypress", %{"code" => "ArrowUp"}, socket) do
-    {:noreply, socket}
-  end
-
-  def handle_event("keypress", %{"code" => "ArrowLeft"}, socket) do
-    {:noreply, socket}
-  end
-
-  def handle_event("keypress", %{"code" => "ArrowRight"}, socket) do
+  def handle_event("keypress", %{"code" => _}, socket) do
     {:noreply, socket}
   end
 

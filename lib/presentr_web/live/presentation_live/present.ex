@@ -9,7 +9,6 @@ defmodule PresentrWeb.PresentationLive.Present do
   end
 
   @impl true
-  @spec handle_event(<<_::32, _::_*32>>, any, any) :: {:noreply, any}
   def handle_event("keypress", %{"code" => "ArrowRight"}, socket) do
     new_slide =
       if Enum.at(socket.assigns.slides, socket.assigns.slide + 1),
@@ -49,11 +48,7 @@ defmodule PresentrWeb.PresentationLive.Present do
     {:noreply, assign(socket, :slide, new_slide)}
   end
 
-  def handle_event("keypress", %{"code" => "ArrowDown"}, socket) do
-    {:noreply, socket}
-  end
-
-  def handle_event("keypress", %{"code" => "ArrowUp"}, socket) do
+  def handle_event("keypress", %{"code" => _}, socket) do
     {:noreply, socket}
   end
 
