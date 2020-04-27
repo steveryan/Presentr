@@ -27,6 +27,11 @@ config :presentr, PresentrWeb.Endpoint,
 #
 # Then you can assemble a release by calling `mix release`.
 # See `mix help release` for more information.
+github_token =
+  System.get_env("GITHUB_TOKEN") ||
+    raise """
+    No github token found in env variables
+    """
 
 config :presentr,
-  token: "Bearer f72d874cc995c9f427877b4dafdb46bdba87fd5f"
+  token: github_token
