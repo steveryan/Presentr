@@ -6,4 +6,4 @@ Once you've entered the gist id of your presentation, you'll see your slides, an
 
 You'll also get a url to send to your audience members.
 
-![Gif of Presentr functionality](https://github.com/steveryan/Presentr/raw/master/Presentr.gif)
+![Gif of Presentr functionality](https://github.com/steveryan/Presentr/master/presentr.gif)
