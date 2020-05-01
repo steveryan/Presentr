@@ -5,6 +5,16 @@ defmodule PresentrWeb.PresentationLive.Present do
   def mount(%{"id" => id}, _session, socket) do
     Phoenix.PubSub.subscribe(Presentr.PubSub, "#{id}")
 
+    Phoenix.PubSub.broadcast_from(
+      Presentr.PubSub,
+      self(),
+      "#{id}",
+      {:new_slide,
+       %{
+         slide: 0
+       }}
+    )
+
     {:ok, socket}
   end
 
@@ -97,13 +107,14 @@ defmodule PresentrWeb.PresentationLive.Present do
     {:noreply, assign(socket, :slide, slide)}
   end
 
-  def handle_info({:get_slide_number}, socket) do
+  def handle_info({:get_slides_and_slide_number}, socket) do
     Phoenix.PubSub.broadcast_from(
       Presentr.PubSub,
       self(),
       "#{socket.assigns.presentation_id}",
-      {:new_slide,
+      {:slides_and_slide_number,
        %{
+         slides: socket.assigns.slides,
          slide: socket.assigns.slide
        }}
     )
