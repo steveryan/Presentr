@@ -11,3 +11,5 @@ config :logger, level: :warn
 
 config :phoenix_integration,
   endpoint: PresentrWeb.Endpoint
+
+import_config "test.secret.exs"

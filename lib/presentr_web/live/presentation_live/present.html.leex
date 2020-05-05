@@ -6,9 +6,9 @@
 
 <%= if is_list(assigns.slides) do %>
   <div style="display: flex;" phx-window-keyup="keypress">
-    <button phx-click="previous" style="margin: 10px;"><</button>
+    <button id="previous" phx-click="previous" style="margin: 10px;"><</button>
     <div style="width: 100%; margin: 10px;"><%= live_component @socket, PresentrWeb.PresentationLive.Slide, html: assigns.slides, slide: assigns.slide %></div>
-    <button phx-click="next" style="margin: 10px;" target="_blank">></button>
+    <button id="next" phx-click="next" style="margin: 10px;" target="_blank">></button>
   </div>
 <%= else %>
   <%= assigns.slides %>
