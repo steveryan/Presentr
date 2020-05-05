@@ -8,7 +8,7 @@
     <div style="display: flex;" phx-window-keyup="keypress">
       <div style="width: 100%; margin: 10px;"><%= live_component @socket, PresentrWeb.PresentationLive.Slide, html: assigns.slides, slide: assigns.slide %></div>
     </div>
-  <%= else %>
+  <% else %>
     <%= assigns.slides %>
   <% end %>
 

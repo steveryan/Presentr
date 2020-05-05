@@ -10,6 +10,6 @@
     <div style="width: 100%; margin: 10px;"><%= live_component @socket, PresentrWeb.PresentationLive.Slide, html: assigns.slides, slide: assigns.slide %></div>
     <button id="next" phx-click="next" style="margin: 10px;" target="_blank">></button>
   </div>
-<%= else %>
+<% else %>
   <%= assigns.slides %>
 <% end %>

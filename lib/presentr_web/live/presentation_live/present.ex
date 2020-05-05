@@ -2,6 +2,7 @@ defmodule PresentrWeb.PresentationLive.Present do
   use PresentrWeb, :live_view
 
   @impl true
+  @spec mount(map(), any, %Phoenix.LiveView.Socket{}) :: {:ok, %Phoenix.LiveView.Socket{}}
   def mount(%{"id" => id}, _session, socket) do
     Phoenix.PubSub.subscribe(Presentr.PubSub, "#{id}")
 
@@ -19,6 +20,8 @@ defmodule PresentrWeb.PresentationLive.Present do
   end
 
   @impl true
+  @spec handle_event(binary(), map(), %Phoenix.LiveView.Socket{}) ::
+          {:noreply, %Phoenix.LiveView.Socket{}}
   def handle_event("keypress", %{"code" => "ArrowRight"}, socket) do
     new_slide =
       if Enum.at(socket.assigns.slides, socket.assigns.slide + 1),
@@ -103,6 +106,8 @@ defmodule PresentrWeb.PresentationLive.Present do
   end
 
   @impl true
+  @spec handle_info({atom(), map()}, %Phoenix.LiveView.Socket{}) ::
+          {:noreply, %Phoenix.LiveView.Socket{}}
   def handle_info({:new_slide, %{slide: slide}}, socket) do
     {:noreply, assign(socket, :slide, slide)}
   end
@@ -123,6 +128,8 @@ defmodule PresentrWeb.PresentationLive.Present do
   end
 
   @impl true
+  @spec handle_params(map, any, Phoenix.LiveView.Socket.t()) ::
+          {:noreply, Phoenix.LiveView.Socket.t()}
   def handle_params(%{"id" => id}, _, socket) do
     {:noreply,
      socket
@@ -132,8 +139,10 @@ defmodule PresentrWeb.PresentationLive.Present do
      |> assign(:slide, 0)}
   end
 
+  @spec page_title(any()) :: String.t()
   defp page_title(_title), do: "Presentr"
 
+  @spec get_slides(String.t()) :: Enum.t() | String.t()
   defp get_slides(id) do
     case HTTPoison.get("https://api.github.com/gists/#{id}",
            Authorization: Application.get_env(:presentr, :token)

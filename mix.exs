@@ -47,7 +47,8 @@ defmodule Presentr.MixProject do
       {:httpoison, "~> 1.6"},
       {:earmark, "> 1.4.2"},
       {:phoenix_integration, "~> 0.8", only: :test},
-      {:hound, "~> 1.0"}
+      {:hound, "~> 1.0"},
+      {:dialyxir, "~> 1.0.0", only: [:dev], runtime: false}
     ]
   end
 
