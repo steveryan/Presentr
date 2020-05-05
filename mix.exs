@@ -45,7 +45,9 @@ defmodule Presentr.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 1.6"},
-      {:earmark, "> 1.4.2"}
+      {:earmark, "> 1.4.2"},
+      {:phoenix_integration, "~> 0.8", only: :test},
+      {:hound, "~> 1.0"}
     ]
   end
 

@@ -23,6 +23,8 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :hound, driver: "chrome_driver"
+
 # import_config "#{Mix.env()}.secret.exs"
 
 # Import environment specific config. This must remain at the bottom
