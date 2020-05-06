@@ -61,11 +61,15 @@
 }
 
 .logo {
+  display: block;
   width: 100px !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo_header {
   width: 100%;
+  align-items: center;
 }
 
 
