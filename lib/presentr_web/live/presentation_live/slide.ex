@@ -4,7 +4,7 @@ defmodule PresentrWeb.PresentationLive.Slide do
   def render(assigns) do
     ~L"""
     <div>
-      <%= raw(Earmark.as_html!(Enum.at(@html,@slide))) %>
+      <%= raw(Enum.at(@html,@slide)) %>
     </div>
     """
   end

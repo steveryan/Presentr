@@ -48,7 +48,11 @@ defmodule Presentr.MixProject do
       {:earmark, "> 1.4.2"},
       {:phoenix_integration, "~> 0.8", only: :test},
       {:hound, "~> 1.0"},
-      {:dialyxir, "~> 1.0.0", only: [:dev], runtime: false}
+      {:dialyxir, "~> 1.0.0", only: [:dev], runtime: false},
+      {:ex_aws, "~> 2.1.0"},
+      {:ex_aws_lambda, "~> 2.0"},
+      {:hackney, "~> 1.9"},
+      {:poison, "~> 3.0"}
     ]
   end
 

@@ -143,7 +143,7 @@ defmodule PresentrWeb.PresentationLive.Present do
   defp page_title(_title), do: "Presentr"
 
   @spec get_slides(String.t()) :: Enum.t() | String.t()
-  defp get_slides(id) do
+  defp get_slides_elixir(id) do
     case HTTPoison.get("https://api.github.com/gists/#{id}",
            Authorization: Application.get_env(:presentr, :token)
          ) do
@@ -162,5 +162,13 @@ defmodule PresentrWeb.PresentationLive.Present do
       {:error, %HTTPoison.Error{reason: reason}} ->
         "Error: #{reason}"
     end
+  end
+
+  defp get_slides(id) do
+    {:ok, body} =
+      ExAws.Lambda.invoke("presentr_gist_fetch_and_convert", %{id: id}, %{})
+      |> ExAws.request(region: "us-east-1")
+
+    body
   end
 end
